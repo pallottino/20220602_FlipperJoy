@@ -4,9 +4,9 @@
 Angelo Raglianti marcoangelo.r@alice.it
 
 joy_digi per pinball emulator:
-4 assi digitali (Joy digitale)
+6 assi digitali (Joystick digitale)
 sequenza di uscita:
-X - Y - Z - Rx
+X - Y - Z - Rx - Ry - Rz
 16 pulsanti On/Off con tastiera 4Rx4C (Dev1 to Dev16)
 
 uscita USB:
