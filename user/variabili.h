@@ -36,8 +36,8 @@ volatile uint16_t timer1;
 volatile uint8_t timer2;
 volatile uint16_t timer3;
 
-volatile uint8_t txBufDat[MAXTXBUFDAT] JOYSTICK_TXDATA_ADDRESS;
-volatile uint8_t rxBufDat[MAXRXBUFDAT] JOYSTICK_RXDATA_ADDRESS;
+volatile int8_t txBufDat[MAXTXBUFDAT] JOYSTICK_TXDATA_ADDRESS;
+volatile int8_t rxBufDat[MAXRXBUFDAT] JOYSTICK_RXDATA_ADDRESS;
 volatile USB_HANDLE lastTransmission_handle;
 
 /*! @todo Dati da aggiornare ***

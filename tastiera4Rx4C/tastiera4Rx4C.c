@@ -46,27 +46,31 @@ void gestioneTastiera4Rx4C(void)
   tmpData = (uint8_t) (READALLCTRLRIGA);
   if ((tmpData & CHECKCTRLRIGA1) != 0)
   {
-    txBufDat[0] = (uint8_t)MAX_VAL_CONV; // UP
+    txBufDat[0] = (int8_t)MIN_VAL_CONV; // UP
+    joyPul[1] |= CHECKCTRLDEV5;
   }
   else if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
-    txBufDat[0] = (uint8_t)MIN_VAL_CONV; // DW
+    txBufDat[0] = (int8_t)MAX_VAL_CONV; // DW
+    joyPul[1] |= CHECKCTRLDEV6;
   }
   else
   {
-    txBufDat[0] = (uint8_t)MID_VAL_CONV; // MID
+    txBufDat[0] = (int8_t)MID_VAL_CONV; // MID
   }
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
-    txBufDat[1] = (uint8_t)MIN_VAL_CONV; // SX
+    txBufDat[1] = (int8_t)MIN_VAL_CONV; // SX
+    joyPul[1] |= CHECKCTRLDEV7;
   }
   else if ((tmpData & CHECKCTRLRIGA4) != 0)
   {
-    txBufDat[1] = (uint8_t)MAX_VAL_CONV; // DX
+    txBufDat[1] = (int8_t)MAX_VAL_CONV; // DX
+    joyPul[1] |= CHECKCTRLDEV8;
   }
   else
   {
-    txBufDat[1] = (uint8_t)MID_VAL_CONV; // MID
+    txBufDat[1] = (int8_t)MID_VAL_CONV; // MID
   }
   ALLCTRLCOLONNALOW;
   _nop;
@@ -79,11 +83,11 @@ void gestioneTastiera4Rx4C(void)
   }
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV2;
+    joyPul[0] |= CHECKCTRLDEV4;
   }
   if ((tmpData & CHECKCTRLRIGA4) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV3;
+    joyPul[0] |= CHECKCTRLDEV7;
   }
   ALLCTRLCOLONNALOW;
   _nop;
@@ -92,7 +96,7 @@ void gestioneTastiera4Rx4C(void)
   tmpData = (uint8_t) (READALLCTRLRIGA);
   if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV4;
+    joyPul[0] |= CHECKCTRLDEV2;
   }
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
@@ -100,28 +104,28 @@ void gestioneTastiera4Rx4C(void)
   }
   if ((tmpData & CHECKCTRLRIGA4) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV6;
+    joyPul[0] |= CHECKCTRLDEV8;
   }
   ALLCTRLCOLONNALOW;
   _nop;
   CTRLCOLONNA4HIGH;
   _nop;
-  tmpData = (uint8_t) (READALLCTRLRIGA);
+  tmpData = READALLCTRLRIGA;
   if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV7;
+    joyPul[0] |= (int8_t)CHECKCTRLDEV3;
   }
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
-    joyPul[0] |= CHECKCTRLDEV8;
+    joyPul[0] |= (int8_t)CHECKCTRLDEV6;
   }
   ALLCTRLCOLONNALOW;
   txBufDat[2] = MID_VAL_CONV;
   txBufDat[3] = MID_VAL_CONV;
   txBufDat[4] = MID_VAL_CONV;
   txBufDat[5] = MID_VAL_CONV;
-  txBufDat[6] = joyPul[0];
-  txBufDat[7] = joyPul[1];
+  txBufDat[6] = (int8_t)joyPul[0];
+  txBufDat[7] = (int8_t)joyPul[1];
 }
 
 /*! Tasti joystick arcade home made 
@@ -152,6 +156,6 @@ void initTastiera4Rx4C (void)
   txBufDat[3] = MID_VAL_CONV;
   txBufDat[4] = MID_VAL_CONV;
   txBufDat[5] = MID_VAL_CONV;
-  txBufDat[6] = joyPul[0];
-  txBufDat[7] = joyPul[1];
+  txBufDat[6] = (int8_t)joyPul[0];
+  txBufDat[7] = (int8_t)joyPul[1];
 }

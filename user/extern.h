@@ -42,8 +42,8 @@ extern volatile uint16_t timer1;
 extern volatile uint8_t timer2;
 extern volatile uint16_t timer3;
 
-extern volatile uint8_t txBufDat[];
-extern volatile uint8_t rxBufDat[];
+extern volatile int8_t txBufDat[];
+extern volatile int8_t rxBufDat[];
 extern volatile USB_HANDLE lastTransmission_handle;
 
 /*! @todo Dati da aggiornare ***

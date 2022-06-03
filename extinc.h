@@ -135,16 +135,16 @@
 //#define HID_INT_OUT_EP_SIZE     8
 //#define HID_INT_IN_EP_SIZE      8
 #define HID_NUM_OF_DSC 1
-#define HID_RPT01_SIZE 57
+#define HID_RPT01_SIZE 51
 #define JEPI_VID 0x0008 // Vendor ID, see usb_config.h
 #define JEPI_PID 0x0008 // Product ID, see usb_config.h
 #define JEPI_BCD 0x0002 // Bcd Device Number
 #define USB_NUM_STRING_DESCRIPTORS 6
 
 /*! @todo *** Valori da aggiornare */
-#define MIN_VAL_CONV      1 // Variare valori da 0 / 255 per lettura [] desiderata
-#define MID_VAL_CONV      127
-#define MAX_VAL_CONV      255
+#define MIN_VAL_CONV      -128 // Variare valori da 0 / 255 per lettura [] desiderata
+#define MID_VAL_CONV      0
+#define MAX_VAL_CONV      127
 #define CHECKCTRLDEV1                    0x0001 
 #define CHECKCTRLDEV2                    0x0002 
 #define CHECKCTRLDEV3                    0x0004 

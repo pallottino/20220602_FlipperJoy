@@ -17,7 +17,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 //
 
-#include "main.h"
 #include "extinc.h"
 #include "variabili.h"
 #include "main.h"
@@ -97,7 +96,6 @@ void main(void)
 #endif
   CLEARFLSPEEDLAMP;
   initTastiera4Rx4C();
-  SETFLDEBOUNCE; // Forza aggiornamento immediato memJoyPul
   PRIORITYINTOFF; // RCON &= 0b01111111 Bit 7 (IPEN) = 0 dsabilita interrupt priority
   while (1)
     {

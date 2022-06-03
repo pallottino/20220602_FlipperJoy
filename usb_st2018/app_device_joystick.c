@@ -161,7 +161,6 @@ void APP_DeviceJoystickTasks(void)
     {
       //Send the 8 byte packet over USB to the host.
       lastTransmission_handle = HIDTxPacket(HID_EP, (uint8_t*)txBufDat, MAXTXBUFDAT);
-      //HIDTxPacket(HID_EP, (uint8_t*)txBufDat, MAXTXBUFDAT);
     }
     
 }//end ProcessIO

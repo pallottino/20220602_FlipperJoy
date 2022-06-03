@@ -1,0 +1,11 @@
+
+/*! @date 2 Giugno 2022 FlipperJoy */
+Rev. RC 1.00 A
+
+Autore: Angelo Raglianti (Pisa)
+email:  marcoangelo.r@alice.it
+
+Joystick Usb digitale (controlli On-Off)
+
+6 Assi 0 to 255
+16 pulsanti on - off

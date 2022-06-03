@@ -1558,7 +1558,7 @@ static void USBConfigureEndpoint(uint8_t EPNum, uint8_t direction)
     //Compute a pointer to the even BDT entry corresponding to the
     //EPNum and direction values passed to this function.
     handle = (volatile BDT_ENTRY*)&BDT[EP0_OUT_EVEN]; //Get address of start of BDT
-    handle += (uint8_t)EP(EPNum,direction,0u);     //Add in offset to the BDT of interest
+    handle += (int8_t)EP(EPNum,direction,0u);     //Add in offset to the BDT of interest
 
     handle->STAT.UOWN = 0;  //mostly redundant, since USBStdSetCfgHandler()
     //already cleared the entire BDT table
