@@ -37,7 +37,7 @@ void main(void);
 
 /*! @todo *** Valori da aggiornare */
 #define DEFDAYDEC 0x00
-#define DEFDAYUNI 0x03
+#define DEFDAYUNI 0x04
 #define DEFDAY 0x04
 #define DEFMONTHDEC 0x00
 #define DEFMONTHUNI 0x06
@@ -53,12 +53,12 @@ void main(void);
 #define DEFREVUNI 'C'
 #define DEFREVFRAZDEC '1'
 #define DEFREVFRAZCENT '0'
-#define DEFREVLETTER 'A'
+#define DEFREVLETTER 'B'
 /// Define per Ora revisione
-#define DEFORADEC 0
-#define DEFORAUNI 9
-#define DEFMINDEC 0
-#define DEFMINUNI 0
+#define DEFORADEC 1
+#define DEFORAUNI 7
+#define DEFMINDEC 2
+#define DEFMINUNI 5
 
 #define DEFTITLE00 'J'
 #define DEFTITLE01 'o'

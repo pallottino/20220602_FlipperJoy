@@ -153,6 +153,12 @@
 #define CHECKCTRLDEV6                    0x0020 
 #define CHECKCTRLDEV7                    0x0040 
 #define CHECKCTRLDEV8                    0x0080
+#define CHECKCTRLFLIP_UP                 0x0001
+#define CHECKCTRLFLIP_DW                 0x0002
+#define CHECKCTRLFLIP_SX                 0x0004
+#define CHECKCTRLFLIP_DX                 0x0008
+#define CHECKCTRLFLIP_PADSX              0x0010
+#define CHECKCTRLFLIP_PADDX              0x0020
 #include "tastiera4Rx4C\tastiera4Rx4C.h"
 /*! @todo *** End */
 

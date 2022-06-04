@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 /*! @date 2 Giugno 2022 FlipperJoy */
 Rev. RC 1.00 A
 
@@ -9,3 +10,6 @@ Joystick Usb digitale (controlli On-Off)
 
 6 Assi 0 to 255
 16 pulsanti on - off
+=======
+/*! @date 2 Giugno 2022 Periferica di gioco 6 Assi On-Off + 16 pulsanti */
+>>>>>>> 0d5e4f12055cf82ea9fe2acde08eb69061752ce5

@@ -41,18 +41,18 @@ void gestioneTastiera4Rx4C(void)
   joyPul[1] = 0;
   ALLCTRLCOLONNALOW;
   _nop;
-  CTRLCOLONNA1HIGH;
+  CTRLCOLONNA1HIGH; 
   _nop;
-  tmpData = (uint8_t) (READALLCTRLRIGA);
+  tmpData = (uint8_t) (READALLCTRLRIGA); /*| PORTB 3-0 stato pulsanti colonna 1 */
   if ((tmpData & CHECKCTRLRIGA1) != 0)
   {
     txBufDat[0] = (int8_t)MIN_VAL_CONV; // UP
-    joyPul[1] |= CHECKCTRLDEV5;
+    joyPul[1] |= CHECKCTRLFLIP_UP;
   }
   else if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
     txBufDat[0] = (int8_t)MAX_VAL_CONV; // DW
-    joyPul[1] |= CHECKCTRLDEV6;
+    joyPul[1] |= CHECKCTRLFLIP_DW;
   }
   else
   {
@@ -61,12 +61,12 @@ void gestioneTastiera4Rx4C(void)
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
     txBufDat[1] = (int8_t)MIN_VAL_CONV; // SX
-    joyPul[1] |= CHECKCTRLDEV7;
+    joyPul[1] |= CHECKCTRLFLIP_SX;
   }
   else if ((tmpData & CHECKCTRLRIGA4) != 0)
   {
     txBufDat[1] = (int8_t)MAX_VAL_CONV; // DX
-    joyPul[1] |= CHECKCTRLDEV8;
+    joyPul[1] |= CHECKCTRLFLIP_DX;
   }
   else
   {
@@ -76,7 +76,7 @@ void gestioneTastiera4Rx4C(void)
   _nop;
   CTRLCOLONNA2HIGH;
   _nop;
-  tmpData = (uint8_t) (READALLCTRLRIGA);
+  tmpData = (uint8_t) (READALLCTRLRIGA); /*| PORTB 3-0 stato pulsanti colonna 2 */
   if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
     joyPul[0] |= CHECKCTRLDEV1;
@@ -93,7 +93,7 @@ void gestioneTastiera4Rx4C(void)
   _nop;
   CTRLCOLONNA3HIGH;
   _nop;
-  tmpData = (uint8_t) (READALLCTRLRIGA);
+  tmpData = (uint8_t) (READALLCTRLRIGA); /*| PORTB 3-0 stato pulsanti colonna 3 */
   if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
     joyPul[0] |= CHECKCTRLDEV2;
@@ -110,7 +110,11 @@ void gestioneTastiera4Rx4C(void)
   _nop;
   CTRLCOLONNA4HIGH;
   _nop;
-  tmpData = READALLCTRLRIGA;
+  tmpData = (uint8_t) READALLCTRLRIGA; /*| PORTB 3-0 stato pulsanti colonna 1 */
+  if ((tmpData & CHECKCTRLRIGA1) != 0)
+  {
+    joyPul[1] |= (int8_t)CHECKCTRLFLIP_PADSX;
+  }
   if ((tmpData & CHECKCTRLRIGA2) != 0)
   {
     joyPul[0] |= (int8_t)CHECKCTRLDEV3;
@@ -118,6 +122,10 @@ void gestioneTastiera4Rx4C(void)
   if ((tmpData & CHECKCTRLRIGA3) != 0)
   {
     joyPul[0] |= (int8_t)CHECKCTRLDEV6;
+  }
+  if ((tmpData & CHECKCTRLRIGA4) != 0)
+  {
+    joyPul[1] |= (int8_t)CHECKCTRLFLIP_PADDX;
   }
   ALLCTRLCOLONNALOW;
   txBufDat[2] = MID_VAL_CONV;
